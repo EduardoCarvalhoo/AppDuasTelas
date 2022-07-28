@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.appduastelas.R
 import com.example.appduastelas.databinding.CartItemsBinding
 import com.example.appduastelas.response.ItemsResponse
 
@@ -34,21 +35,17 @@ class ShoppingListAdapter(
         private val image = binding.cartItemsProductImageView
         private val description = binding.cartItemsDescriptionTextView
         private val price = binding.cartItemsPriceOfTheProductTextView
-        private val stock = binding.cartItemsStockTextView
+        private val stock = binding.cartItemsNumberOfProductsTextView
 
         fun bindView(item: ItemsResponse) {
-            getUrl(item.image_url.toString())
+            Glide.with(this@ShoppingListViewHolder.itemView).load(item.image_url).into(image)
             description.text = item.name
             price.text = item.price
-            stock.text = item.stock
+            stock.text = item.stock + itemView.context.getString(R.string.cart_items_stock_text)
 
             itemView.setOnClickListener {
                 onItemClickListener.invoke(item)
             }
-        }
-
-        private fun getUrl(imageUrl: String) {
-            Glide.with(this@ShoppingListViewHolder.itemView).load(imageUrl).into(image)
         }
     }
 }
