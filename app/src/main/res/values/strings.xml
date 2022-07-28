@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">App Duas Telas</string>
+
+    <!-- Main -->
+    <string name="main_number_of_items_text">4 items in your cart</string>
+    <string name="main_total_text">Total</string>
+    <string name="main_subtotal_text">Subtotal</string>
+    <string name="main_shipping_text">Shipping</string>
+    <string name="main_tax_text">Tax</string>
+    <string name="main_title_text">Cart</string>
+
+    <!-- Cart Items -->
+    <string name="cart_items_stock_text">in stock</string>
+    <string name="cart_product_description_text">Você clicou em uma imagem de um produto do carrinho</string>
+
+    <!-- Product Details -->
+    <string name="product_details_title_text">Product details</string>
 </resources>
