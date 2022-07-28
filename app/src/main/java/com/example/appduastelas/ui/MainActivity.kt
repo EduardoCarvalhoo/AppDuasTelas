@@ -14,7 +14,6 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
-
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,8 +58,12 @@ class MainActivity : AppCompatActivity() {
         if (response.isSuccessful && response.body() != null) {
             binding.mainRecyclerView.adapter = ShoppingListAdapter(
                 response.body() ?: return
-            ) {
-
+            ) { itemsResponse ->
+                val intent = ProductDetails.getStartIntent(
+                    this@MainActivity, itemsResponse.image_url, itemsResponse.name,
+                    itemsResponse.price, itemsResponse.stock, itemsResponse.description
+                )
+                startActivity(intent)
             }
         }
     }
