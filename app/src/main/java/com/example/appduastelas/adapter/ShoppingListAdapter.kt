@@ -41,7 +41,7 @@ class ShoppingListAdapter(
             Glide.with(this@ShoppingListViewHolder.itemView).load(item.image_url).into(image)
             description.text = item.name
             price.text = item.price
-            stock.text = item.stock + itemView.context.getString(R.string.cart_items_stock_text)
+            stock.text = itemView.context.getString(R.string.cart_items_stock_text, item.stock)
 
             itemView.setOnClickListener {
                 onItemClickListener.invoke(item)
