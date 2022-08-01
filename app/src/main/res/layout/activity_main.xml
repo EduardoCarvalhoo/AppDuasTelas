@@ -6,6 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".ui.MainActivity">
 
+    <View
+        android:id="@+id/cart_items_bottom_view"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/light_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_recycler_view" />
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/product_details_toolbar"
         android:layout_width="0dp"
@@ -48,11 +58,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="74dp"
         android:text="@string/main_tax_text"
         android:textColor="@color/black"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/main_value_tax_text_view"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/main_shipping_text_view" />
@@ -87,8 +95,7 @@
         android:id="@+id/main_recycler_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintBottom_toTopOf="@+id/main_total_text_view"
+        app:layout_constraintBottom_toTopOf="@+id/cart_items_bottom_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -113,13 +120,13 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:text="@string/main_total_text"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toStartOf="@+id/main_value_total_text_view"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/main_recycler_view" />
+        app:layout_constraintTop_toBottomOf="@+id/cart_items_bottom_view" />
 
     <TextView
         android:id="@+id/main_value_subtotal_text_view"
@@ -137,13 +144,13 @@
         android:id="@+id/main_value_total_text_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="16dp"
         android:gravity="end"
         android:textColor="@color/black"
-        android:textSize="28sp"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/main_recycler_view"
+        app:layout_constraintTop_toBottomOf="@+id/cart_items_bottom_view"
         tools:text="41.24" />
 
     <ProgressBar
