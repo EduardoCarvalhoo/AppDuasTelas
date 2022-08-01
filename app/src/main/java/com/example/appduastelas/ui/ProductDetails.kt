@@ -16,28 +16,23 @@ class ProductDetails : AppCompatActivity() {
         binding = ActivityProductDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        configureActionBar()
         configureDetailsData()
     }
 
-    private fun configureDetailsData(){
-        val imageUrl = intent.getStringExtra(IMAGE_URL)
-        getUrl(imageUrl)
-        binding.productDetailsDescriptionTextView.text = intent.getStringExtra(NAME) ?: ""
-        binding.productDetailsValueTextView.text = intent.getStringExtra(PRICE) ?: ""
-        binding.productDetailsNumberOfProductsTextView.text = intent.getStringExtra(STOCK) ?: "" + getString(R.string.cart_items_stock_text)
-        binding.productDetailsItemInformationTextView.text = intent.getStringExtra(DESCRIPTION) ?: ""
-    }
-
-    private fun getUrl(imageUrl: String?) {
-        Glide.with(this@ProductDetails).load(imageUrl).into(binding.productDetailsItemImageView)
+    private fun configureDetailsData() {
+        Glide.with(this@ProductDetails).load(intent.getStringExtra(IMAGE_URL))
+            .into(binding.productDetailsItemImageView)
+        with(binding) {
+            productDetailsDescriptionTextView.text = intent.getStringExtra(NAME) ?: ""
+            productDetailsValueTextView.text = intent.getStringExtra(PRICE) ?: ""
+            productDetailsNumberOfProductsTextView.text =
+                getString(R.string.cart_items_stock_text, intent.getStringExtra(STOCK))
+            productDetailsItemInformationTextView.text = intent.getStringExtra(DESCRIPTION) ?: ""
+        }
     }
 
     companion object {
-        private const val IMAGE_URL = "image_url"
-        private const val NAME = "name"
-        private const val PRICE = "price"
-        private const val STOCK = "stock"
-        private const val DESCRIPTION = "description"
         fun getStartIntent(
             context: Context, image_url: String?, name: String?, price: String?,
             stock: String?, description: String?
@@ -50,5 +45,16 @@ class ProductDetails : AppCompatActivity() {
                 putExtra(DESCRIPTION, description)
             }
         }
+        private const val IMAGE_URL = "image_url"
+        private const val NAME = "name"
+        const val PRICE = "price"
+        private const val STOCK = "stock"
+        private const val DESCRIPTION = "description"
+    }
+
+    private fun configureActionBar() {
+        setSupportActionBar(binding.productDetailsToolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_baseline_close_24)
     }
 }
