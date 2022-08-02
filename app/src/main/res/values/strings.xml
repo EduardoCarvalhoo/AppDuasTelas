@@ -10,9 +10,20 @@
     <string name="main_title_text">Cart</string>
 
     <!-- Cart Items -->
-    <string name="cart_items_stock_text">in stock</string>
+    <string name="cart_items_stock_text">%1$s in stock</string>
     <string name="cart_product_description_text">Você clicou em uma imagem de um produto do carrinho</string>
 
     <!-- Product Details -->
     <string name="product_details_title_text">Product details</string>
+
+    <!-- Erro dialog messages -->
+    <string name="error_dialog_title">Erro!</string>
+    <string name="error_dialog_positive_button_message">Tentar novamente</string>
+    <string name="error_dialog_negative_button_message">Cancelar</string>
+
+    <string name="no_internet_connection_error">Sem conexão com a internet. Tente novamente!</string>
+    <string name="generic_error">Ocorreu um erro, tente mais tarde!</string>
+    <string name="server_error">Ocorreu um erro em nossos servidores, tente mais tarde!</string>
+
+
 </resources>
